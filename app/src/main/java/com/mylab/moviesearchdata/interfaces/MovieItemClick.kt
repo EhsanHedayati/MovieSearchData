@@ -1,4 +1,4 @@
-package com.mylab.moviesearchdata
+package com.mylab.moviesearchdata.interfaces
 
 import com.mylab.moviesearchdata.model.Search
 

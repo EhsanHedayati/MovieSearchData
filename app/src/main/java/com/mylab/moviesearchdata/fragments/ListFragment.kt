@@ -1,4 +1,4 @@
-package com.mylab.moviesearchdata
+package com.mylab.moviesearchdata.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-
 import com.google.android.material.snackbar.Snackbar
+import com.mylab.moviesearchdata.interfaces.MovieItemClick
+import com.mylab.moviesearchdata.adapters.MovieRecyclerListAdapter
+import com.mylab.moviesearchdata.viewmodels.SharedViewModel
 import com.mylab.moviesearchdata.databinding.FragmentListBinding
 import com.mylab.moviesearchdata.model.ResponseMovie
 import com.mylab.moviesearchdata.model.Search

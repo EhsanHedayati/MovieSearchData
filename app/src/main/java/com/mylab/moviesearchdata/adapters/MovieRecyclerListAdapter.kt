@@ -1,4 +1,4 @@
-package com.mylab.moviesearchdata
+package com.mylab.moviesearchdata.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,8 +7,11 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.mylab.moviesearchdata.databinding.MovieRecyclerViewItemBinding
 import com.mylab.moviesearchdata.model.Search
+import com.mylab.moviesearchdata.interfaces.MovieItemClick
 
-class MovieRecyclerListAdapter(val movieItemClick: MovieItemClick) : ListAdapter<Search,MovieRecyclerListAdapter.MovieViewHolder>(Companion) {
+class MovieRecyclerListAdapter(val movieItemClick: MovieItemClick) : ListAdapter<Search, MovieRecyclerListAdapter.MovieViewHolder>(
+    Companion
+) {
 
     companion object:DiffUtil.ItemCallback<Search>() {
         override fun areItemsTheSame(oldItem: Search, newItem: Search): Boolean {

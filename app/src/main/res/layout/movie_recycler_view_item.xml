@@ -9,7 +9,7 @@
             type="com.mylab.moviesearchdata.model.Search" />
         <variable
             name="itemClick"
-            type="com.mylab.moviesearchdata.MovieItemClick" />
+            type="com.mylab.moviesearchdata.interfaces.MovieItemClick" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout

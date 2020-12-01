@@ -1,10 +1,11 @@
-package com.mylab.moviesearchdata
+package com.mylab.moviesearchdata.viewmodels
 
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.mylab.moviesearchdata.model.MoviesApi
 import com.mylab.moviesearchdata.model.ResponseMovie
+import com.mylab.moviesearchdata.api.MoviesApi
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
@@ -12,7 +13,9 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 
 class SharedViewModel(private val apiService: MoviesApi) : ViewModel() {
 
-    val sharedResponseMovie = MutableLiveData<ResponseMovie>()
+    private var _sharedResponseMovie = MutableLiveData<ResponseMovie>()
+    val sharedResponseMovie : LiveData<ResponseMovie>
+    get() = _sharedResponseMovie
     private val compositeDisposable = CompositeDisposable()
 
 
@@ -27,7 +30,7 @@ class SharedViewModel(private val apiService: MoviesApi) : ViewModel() {
             .subscribe(
                 {
                     it?.let {
-                        sharedResponseMovie.value = it
+                        _sharedResponseMovie.value = it
 
                     }
                 },

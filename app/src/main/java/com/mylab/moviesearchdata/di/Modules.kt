@@ -1,14 +1,13 @@
 package com.mylab.moviesearchdata.di
 
-import com.mylab.moviesearchdata.SharedViewModel
-import com.mylab.moviesearchdata.model.MoviesApi
+import com.mylab.moviesearchdata.viewmodels.SharedViewModel
+import com.mylab.moviesearchdata.api.MoviesApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.concurrent.TimeUnit
 
 val viewModelModule = module {
 
@@ -18,7 +17,7 @@ val viewModelModule = module {
 
 val apiModule = module {
 
-    fun provideMoviesApi(retrofit: Retrofit):MoviesApi{
+    fun provideMoviesApi(retrofit: Retrofit): MoviesApi {
         return retrofit.create(MoviesApi::class.java)
     }
     single { provideMoviesApi(get()) }
